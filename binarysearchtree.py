@@ -55,6 +55,8 @@ class Treenode:
     
     def __str__(self) -> str:
 
+        #TODO: Represent an actual "tree structure"
+
         if self.right is None and self.left is None:
             return (str(self.key) + " - " + str(self.value) + "\n")
         
@@ -93,7 +95,6 @@ class BinarySearchTree:
     | Key of left child always smaller then parent
     | Key of right child always bigger then parent
 
-    constructor() -> /
     put(key, value) -> adds key-value pair to BST
     get(key) -> returns the associated value with key or None
     contains(key) -> returns True/False if key is in BST <=> get(key) != None

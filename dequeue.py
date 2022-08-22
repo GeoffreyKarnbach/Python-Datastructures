@@ -3,8 +3,8 @@ class Dequeue:
     '''
     Basic implementation of a Double Ended Queue:
 
-    addFirst(val) -> adds to beginning
-    addLast(val) -> adds to end
+    addFirst(value) -> adds value to the beginning
+    addLast(value) -> adds value to the end
 
     pollFirst() -> returns first value and deletes it
     pollLast() -> returns last value and deletes it

@@ -183,4 +183,12 @@ if __name__ == "__main__":
     ll.addLast(3)
     ll.addLast(4)
 
-    print(ll) 
+    print(ll.getFirst()) 
+    print(ll.getLast())
+
+    for loop in range(ll.size()):
+        print(ll.get(loop))
+    
+    print(ll.pollFirst())
+
+    print(ll)

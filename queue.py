@@ -3,7 +3,7 @@ class Queue:
     '''
     Basic implementation of a queue:
 
-    add(val) -> adds to end
+    add(value) -> adds value to the end
     poll() -> returns first value and deletes it
     peek() -> returns first value
     size() -> returns size of queue

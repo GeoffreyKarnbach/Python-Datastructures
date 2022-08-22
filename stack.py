@@ -3,7 +3,7 @@ class Stack:
     '''
     Basic implementation of a stack:
 
-    push(val) -> adds to end
+    push(value) -> adds value to the end
     pop() -> returns last value and deletes it
     peek() -> returns last value
     size() -> returns size of stack
