@@ -1,6 +1,3 @@
-from re import L
-
-
 class Hashmap:
 
     '''
