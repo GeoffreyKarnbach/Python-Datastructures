@@ -335,9 +335,9 @@ hp.put(8,"Prio 8")
 print(hp)
 
 while hp.size() > 0:
-    print(hp.get())
+    print(hp.get()) #10 - 8 - 6 - 5 - 1
 
-print(hp.get())
+print(hp.get()) #None
 ```
 
 Available methods:
