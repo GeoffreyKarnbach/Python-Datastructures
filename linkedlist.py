@@ -163,7 +163,7 @@ class LinkedList:
         if self.head is None:
             return "EMPTY"
 
-        toReturn = ""
+        toReturn = "\n"
         current = self.head
 
         while current.next is not None:

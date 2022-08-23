@@ -15,12 +15,11 @@ Basic requirements for datatypes:
 - Dictionary / Associative Structure https://en.wikipedia.org/wiki/Associative_array
 - Linked List https://en.wikipedia.org/wiki/Linked_list
 - Binary Search Tree https://en.wikipedia.org/wiki/Binary_search_tree
+- Hashmap https://en.wikipedia.org/wiki/Hash_table
 
 ## TODO:
 
 - Heap = Priority Queue https://en.wikipedia.org/wiki/Priority_queue
-
-- Hashtable https://en.wikipedia.org/wiki/Hash_table
 
 - Hashlist
 
@@ -49,10 +48,10 @@ s = Stack()
 for loop in range(1,10):
     s.push(loop)
 
-print(s) #Works as long as elements in stack have __str__ method
+print(s) #Works properly as long as elements in stack have __str__ method
 
 while s.size() > 0:
-    print(s.pop())
+    print(s.pop()) #Numbers from 9 to 1
 
 print(s.pop()) #None
 ```
@@ -81,7 +80,7 @@ for loop in range(1,10):
     q.add(loop)
 
 while q.size() > 0:
-    print(q.poll())
+    print(q.poll()) #Numbers from 1 to 9
 
 print(q.peek()) #None
 ```
@@ -110,9 +109,9 @@ for loop in range(1,10):
     dq.addLast(loop)
 
 while dq.size() > 0:
-    print(dq.pollFirst())
+    print(dq.pollFirst()) #Numbers from 1 to 9
 
-print(dq.pollFirst())
+print(dq.pollFirst()) #None
 ```
 
 Available methods:
@@ -136,25 +135,25 @@ from dictionary import*
 
 assoc = Dictionary()
 
-print(assoc.put("France", "Pari"))
-print(assoc.put("Germany", "Berlin"))
-print(assoc.put("Austria", "Vienna"))
+print(assoc.put("France", "Pari"))#None
+print(assoc.put("Germany", "Berlin"))#None
+print(assoc.put("Austria", "Vienna"))#None
 
 print(assoc)
 
-print(assoc.put("France", "Paris")) #Updating typo in data
+print(assoc.put("France", "Paris")) #Pari
 print(assoc.remove("England")) #None
 print(assoc.remove("Germany")) #Berlin
 
 print(assoc)
 
-print(assoc.containsKey("England"))
-print(assoc.containsKey("France"))
+print(assoc.containsKey("England"))#False
+print(assoc.containsKey("France"))#True
 
-print(assoc.containsValue("London"))
-print(assoc.containsValue("Paris"))
+print(assoc.containsValue("London"))#False
+print(assoc.containsValue("Paris"))#True
 
-print(assoc.size())
+print(assoc.size())#2
 ```
 
 Available methods:
@@ -180,13 +179,13 @@ ll.addLast(2)
 ll.addLast(3)
 ll.addLast(4)
 
-print(ll.getFirst())
-print(ll.getLast())
+print(ll.getFirst()) #1
+print(ll.getLast()) #4
 
 for loop in range(ll.size()):
-    print(ll.get(loop))
+    print(ll.get(loop)) #1 to 4
 
-print(ll.pollFirst())
+print(ll.pollFirst()) #1
 
 print(ll)
 ```
@@ -226,8 +225,9 @@ bst.put(7,14)
 bst.put(1,2)
 bst.put(3,6)
 
-print(bst.get(6))
-print(bst.contains(10))
+print(bst.get(6)) #None
+print(bst.get(2)) #4
+print(bst.contains(10)) #False
 
 print(bst)
 ```
@@ -239,3 +239,42 @@ Available methods:
 - contains(key) -> returns True/False if key is in BST <=> get(key) != None
 
 Usage of an internal "helper" class: Treenode (further documentation in source code)
+
+## <u>Hashmap / Hashtable</u>
+
+https://en.wikipedia.org/wiki/Hash_table
+
+The Hashmap is similar to the associative structure but doesn't use a linear search to find elements inside of it, but computes the index with the object hash and in relation to the internal array size.
+
+```python
+from hashmap import*
+
+hm = Hashmap()
+
+for loop in range(16):
+    hm.put(loop, loop*2)
+
+print(hm)
+
+for loop in range(16):
+    print(str(loop) + " => " + str(hm.get(loop)))
+
+print()
+
+print(hm.containsKey(10)) #True
+print(hm.containsKey(18)) #False
+
+hm.remove(10)
+
+print(hm)
+
+print(hm.containsKey(10)) #False
+```
+
+Available methods:
+
+- index(value) -> returns index that value would have in hashmap (internal method)
+- put(key, value) -> inserts or updates the value for the given key, and returns old value or None
+- get(key) -> returns the value that is associated to the key or None
+- containsKey(key) -> returns True/False if key is in the hashmap
+- remove(key) -> removes the key/value pair from hashmap and returns True if key was removed (or False if not found)

@@ -76,9 +76,13 @@ class Dictionary:
         return self.count
     
     def __str__(self) -> str:
-        toReturn = ""
+
+        toReturn = "\n"
+        
         for index in range(self.count):
             toReturn += (str(self.keys[index]) + " - " + str(self.values[index]) + "\n")
+
+        toReturn += "\n"
 
         return toReturn
     

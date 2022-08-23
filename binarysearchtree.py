@@ -130,7 +130,7 @@ class BinarySearchTree:
         if self.root is None:
             return "EMPTY"
         
-        return str(self.root)
+        return "\n" + str(self.root) + "\n"
 
 
 if __name__ == "__main__":
@@ -154,6 +154,7 @@ if __name__ == "__main__":
     bst.put(3,6)
 
     print(bst.get(6))
+    print(bst.get(2))
     print(bst.contains(10))
 
     print(bst)

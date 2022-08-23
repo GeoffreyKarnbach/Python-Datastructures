@@ -64,10 +64,14 @@ class Dequeue:
         return self.count
     
     def __str__(self) -> str:
-        toReturn = ""
+
+        toReturn = "\n"
+
         for index in range(self.count):
             toReturn += str(self.content[index]) + "\n"
 
+        toReturn += "\n"
+        
         return toReturn
 
 
