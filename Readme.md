@@ -27,6 +27,8 @@ Basic requirements for datatypes:
   - Adjacency Matrix input
 
 - Ringlist
+- Tries? => Information retrieval structure
+- Unions
 
 <br>
 For further reference, the Wikipedia list of some data structures:
