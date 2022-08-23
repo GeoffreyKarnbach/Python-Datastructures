@@ -9,26 +9,27 @@ Basic requirements for datatypes:
 
 ## Datastructures:
 
-- Stack https://en.wikipedia.org/wiki/Stack_(abstract_data_type)
-- Queue https://en.wikipedia.org/wiki/Queue_(abstract_data_type)
-- Double Ended Queue https://en.wikipedia.org/wiki/Double-ended_queue
-- Dictionary / Associative Structure https://en.wikipedia.org/wiki/Associative_array
-- Linked List https://en.wikipedia.org/wiki/Linked_list
-- Binary Search Tree https://en.wikipedia.org/wiki/Binary_search_tree
-- Hashmap https://en.wikipedia.org/wiki/Hash_table
+- [Stack](#ustacku)
+- [Queue](#uqueueu)
+- [Double Ended Queue](#udouble-ended-queue--dequeueu)
+- [Dictionary / Associative Structure](#udictionaryu)
+- [Linked List](#ulinked-listu)
+- [Binary Search Tree](#ubinary-search-treeu)
+- [Hashmap](#uhashmap--hashtableu)
+- [Hashlist](#uhashlistu)
+- [Heap = Priority Queue](#uheap--priority-queueu)
 
 ## TODO:
 
-- Heap = Priority Queue https://en.wikipedia.org/wiki/Priority_queue
-
-- Hashlist
-
 - Graph https://en.wikipedia.org/wiki/Graph_(abstract_data_type)
+
   - Adjacency List input
   - Adjacency Matrix input
 
+- Ringlist
+
 <br>
-For further reference, the Wikipedia list of some common data structures:
+For further reference, the Wikipedia list of some data structures:
 
 https://en.wikipedia.org/wiki/List_of_data_structures
 
@@ -278,3 +279,71 @@ Available methods:
 - get(key) -> returns the value that is associated to the key or None
 - containsKey(key) -> returns True/False if key is in the hashmap
 - remove(key) -> removes the key/value pair from hashmap and returns True if key was removed (or False if not found)
+
+## <u>Hashlist</u>
+
+https://en.wikipedia.org/wiki/Hash_list
+
+A Hashlist is similar to a Hashmap but without the usage of a value associated to a key. Hashlistes can be used, for instance, to check in constant lookup time if an element exists.
+
+```python
+
+from hashlist import*
+
+hl = Hashlist()
+
+hl.put("Python")
+hl.put("C++")
+hl.put("Java")
+
+toCheck = ["Python","C++","C#","Java"]
+
+for item in toCheck:
+    print(f"Element {item} in hashlist: {hl.contains(item)}") #True,True,False,True
+
+print(hl.remove("Java"))#True
+
+print(hl)
+
+```
+
+Available methods:
+
+- index(value) -> returns index that value would have in hashlist
+- put(value) -> adds value to hashlist
+- contains(value) -> returns True/False if value in hashlist
+- remove(value) -> removes value from hashlist and returns if something has been removed
+
+## <u>Heap / Priority Queue</u>
+
+https://en.wikipedia.org/wiki/Priority_queue
+
+A Heap or Priority Queue is a structure to save different "tasks", each having a priority value (higher is more urgent) and an optional description. Priority Queues can be used to organize work and to deal with tasks that are more urgent. It can also be used to reduce the time complexity for algorithms (for instance Dijkstra Algorithm), because the operations on a Heap are in O(log n).
+
+```python
+
+from heap import*
+
+hp = Heap()
+
+hp.put(1)
+hp.put(6,"Prio 6")
+hp.put(10,"Prio 10")
+hp.put(5,"Prio 5")
+hp.put(8,"Prio 8")
+
+print(hp)
+
+while hp.size() > 0:
+    print(hp.get())
+
+print(hp.get())
+```
+
+Available methods:
+
+- heapify(position) -> restores the heap condition for the index position and works up recursively
+- heapifier() -> internal method to call all necessary "heapify() calls" to make sure that the heap condition is met again
+- put(value) -> inserts value into the priority queue
+- delete(positon) -> removes the element at position and restores heap condition with heapify
+- get() -> returns item with highest priority (index 0) and deletes it
