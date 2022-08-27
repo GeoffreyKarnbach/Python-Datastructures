@@ -46,7 +46,7 @@ class LinkedList:
             self.addFirst(value)
         
         elif index >= self.size():
-            raise IndexError("Linked List Index too high, max Value: " + str(self.size()))
+            raise IndexError("Linked List Index too high, max Value: " + str(self.size()-1))
         else:
             counter = 0
             current = self.head

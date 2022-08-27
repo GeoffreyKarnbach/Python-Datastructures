@@ -211,7 +211,8 @@ Available methods:
 
 https://en.wikipedia.org/wiki/Binary_search_tree
 
-WIP: Better representation of the BST through the str() method
+WIP: Better representation of the BST through the str() method<br>
+WIP: Add remove function for BST
 
 - BST: Each Treenode has left and right child
 - Key of left child always smaller then parent
