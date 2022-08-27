@@ -1,0 +1,9 @@
+binarysearchtree
+dequeue
+dictionary
+hashlist
+hashmap
+heap
+linkedlist
+queue
+stack
